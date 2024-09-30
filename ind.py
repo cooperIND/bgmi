@@ -92,10 +92,10 @@ def main():
     dispatcher = updater.dispatcher
 
     # Register command handlers
-    dispatcher.add_handler(CommandHandler("start", /start))
-    dispatcher.add_handler(CommandHandler("help", /help))
-    dispatcher.add_handler(CommandHandler("ddos", /ddos))
-    dispatcher.add_handler(CommandHandler("cancel", /cancel))
+    dispatcher.add_handler(CommandHandler("start", start))
+    dispatcher.add_handler(CommandHandler("help", help_command))
+    dispatcher.add_handler(CommandHandler("ddos", ddos_attack))
+    dispatcher.add_handler(CommandHandler("cancel", cancel_ddos))
 
     # Start the Bot
     updater.start_polling()
