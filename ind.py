@@ -72,7 +72,7 @@ def cancel_ddos(update: Update, context: CallbackContext) -> None:
 # Main function to set up the bot
 def main():
     # Replace 'YOUR_TOKEN' with your bot's token
-    updater = Updater("YOUR_TOKEN")
+    updater = Updater("7709593848:AAEBbjP438T55M1EhgC-NyZe9tKGdUaPA3o")
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
