@@ -13,7 +13,7 @@ def help_command(update: Update, context: CallbackContext) -> None:
     help_text = (
         "/start - Start the bot\n"
         "/help - Show this help message\n"
-        "/ddos <target_ip> <target_port> <duration> - Start a DDoS attack\n"
+        "/ddos <target_ip> <target_port> <duration>\n"
         "/cancel - Cancel the DDoS attack"
     )
     update.message.reply_text(help_text)
